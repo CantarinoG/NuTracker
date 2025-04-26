@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
             foregroundColor: Colors.black,
           ),
         ),
+        dividerColor: Colors.transparent,
       ),
       home: const MainScreen(),
     );
