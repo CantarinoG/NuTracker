@@ -6,6 +6,54 @@ import 'package:nutracker/widgets/progress_bar.dart';
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
+  void _showAddMealBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) => Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+          left: 16,
+          right: 16,
+          top: 16,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Text(
+              'New Meal',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 16),
+            // Add your form fields here
+            const TextField(
+              decoration: InputDecoration(
+                labelText: 'Meal Description',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Add Meal'),
+            ),
+            const SizedBox(height: 16),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +88,7 @@ class MainScreen extends StatelessWidget {
                       children: [
                         IconButton(
                           icon: const Icon(Icons.add),
-                          onPressed: () {},
+                          onPressed: () => _showAddMealBottomSheet(context),
                         ),
                         IconButton(
                           icon: const Icon(Icons.settings),
