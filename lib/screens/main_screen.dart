@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nutracker/models/meal.dart';
+import 'package:nutracker/screens/settings_screen.dart';
 import 'package:nutracker/widgets/meal_card.dart';
 import 'package:nutracker/widgets/progress_bar.dart';
 
@@ -92,7 +93,12 @@ class MainScreen extends StatelessWidget {
                         ),
                         IconButton(
                           icon: const Icon(Icons.settings),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const SettingsScreen()),
+                            );
+                          },
                         ),
                       ],
                     ),
