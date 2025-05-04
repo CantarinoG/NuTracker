@@ -23,11 +23,14 @@ class MealCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    meal.name,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: Text(
+                      meal.name,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   Row(
@@ -38,7 +41,7 @@ class MealCard extends StatelessWidget {
                       ),
                       const SizedBox(width: 8),
                       IconButton(
-                        icon: const Icon(Icons.delete_outline, color: Colors.red),
+                        icon: const Icon(Icons.delete, color: Color.fromARGB(255, 197, 58, 48)),
                         onPressed: () {},
                       ),
                     ],
@@ -101,6 +104,68 @@ class MealCard extends StatelessWidget {
                         const TextSpan(
                           text: 'g fat',
                           style: TextStyle(color: Colors.black),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: '${meal.fiber.round()}',
+                          style: const TextStyle(color: Color.fromARGB(160, 165, 42, 42), fontSize: 14, fontWeight: FontWeight.bold),
+                        ),
+                        const TextSpan(
+                          text: 'g fiber',
+                          style: TextStyle(color: Color.fromARGB(160, 0, 0, 0), fontSize: 14),
+                        ),
+                      ],
+                    ),
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: '${meal.saturatedFats.round()}',
+                          style: const TextStyle(color: Color.fromARGB(160, 255, 193, 59), fontSize: 14, fontWeight: FontWeight.bold),
+                        ),
+                        const TextSpan(
+                          text: 'g sat',
+                          style: TextStyle(color: Color.fromARGB(160, 0, 0, 0), fontSize: 14),
+                        ),
+                      ],
+                    ),
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: '${meal.addedSugar.round()}',
+                          style: const TextStyle(color: Color.fromARGB(160, 255, 192, 203), fontSize: 14, fontWeight: FontWeight.bold),
+                        ),
+                        const TextSpan(
+                          text: 'g sugar',
+                          style: TextStyle(color: Color.fromARGB(160, 0, 0, 0), fontSize: 14),
+                        ),
+                      ],
+                    ),
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: '${meal.alcohol.round()}',
+                          style: const TextStyle(color: Color.fromARGB(160, 128, 0, 128), fontSize: 14, fontWeight: FontWeight.bold),
+                        ),
+                        const TextSpan(
+                          text: 'g alc',
+                          style: TextStyle(color: Color.fromARGB(160, 0, 0, 0), fontSize: 14),
                         ),
                       ],
                     ),
